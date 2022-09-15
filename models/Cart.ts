@@ -1,5 +1,5 @@
-
-const CartSchema = new mongoosee.Schema(
+import mongoose = require("mongoose");
+const CartSchema = new mongoose.Schema(
     {
         userId: {type: String, required:true},
        products: [
@@ -17,4 +17,4 @@ const CartSchema = new mongoosee.Schema(
     {timestamps: true }
 );
 
-module.exports = mongoosee.model("Cart", CartSchema);
+module.exports = mongoose.model("Cart", CartSchema);

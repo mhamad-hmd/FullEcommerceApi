@@ -1,9 +1,9 @@
-
-const ProductSchema = new mongoosee.Schema(
+import mongoose = require("mongoose");
+const ProductSchema = new mongoose.Schema(
     {
         title: { type: String, required:true, unique:true },
         desc: { type: String, required:true },
-        password: { type: String, required:true},
+        img: { type: String, required:true},
         categories: { type: Array },
         size: {type: String},
         color: {type: String},
@@ -12,7 +12,7 @@ const ProductSchema = new mongoosee.Schema(
     {timestamps: true }
 );
 
-module.exports = mongoosee.model("Product", ProductSchema);
+module.exports = mongoose.model("Product", ProductSchema);
 
 
 

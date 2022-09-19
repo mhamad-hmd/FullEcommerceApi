@@ -2,9 +2,10 @@
 const router = require('express').Router();
 import bodyParser = require("body-parser");
 import { Request, Response } from "express";
+
+
+
 const stripe = require("stripe")(process.env.STRIPE_KEY)
-
-
 const jsonParser = bodyParser.json()
 
 
@@ -15,9 +16,10 @@ router.post("/payment", (req:Request, res:Response) => {
         amount: req.body.amount,
         currency: "usd",
 
-    },(stripeErr:Error, stripeRes:Response) => {
+    },
+    (stripeErr:Error, stripeRes:Response) => {
         if(stripeErr){
-            res.status(500).json(stripeErr);
+            res.status(550).json(stripeErr);
         } else{
             res.status(200).json(stripeRes);
         }

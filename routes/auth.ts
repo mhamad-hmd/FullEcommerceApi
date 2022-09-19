@@ -28,7 +28,7 @@ router.post("/register", jsonParser, async (req: Request, res: Response) => {
 
 //Login
 
-router.post("/login", jsonParser, async (req: Request, res: Response) => {
+router.post("/login", async (req: Request, res: Response) => {
 
     try {
         // creating a user variable and this variable will check if theres a user wih the username that we get from the body
@@ -44,7 +44,8 @@ router.post("/login", jsonParser, async (req: Request, res: Response) => {
 
         //checking if User password is === to body password
 
-        originalPassword !== req.body.password && res.status(401).json("Wrong Credentials!")
+        originalPassword !== req.body.password && 
+        res.status(401).json("Wrong Credentials!");
 
         const accessToken = jwt.sign({
             id: user._id,
@@ -55,7 +56,9 @@ router.post("/login", jsonParser, async (req: Request, res: Response) => {
 
         const { password, ...others } = user._doc;
         res.status(200).json({...others, accessToken})
-    } catch (err) { res.status(500).json(err) }
+    } catch (err) {
+        res.status(500);
+      }
 
 })
 

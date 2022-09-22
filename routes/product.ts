@@ -55,6 +55,7 @@ router.get("/find/:id",async(req:Request, res:Response) => {
        
        const product = await Product.findById(req.params.id)
        res.status(200).json(product)
+       console.log(product)
        
     }catch(err) {
         res.status(500).json(err)
@@ -69,6 +70,7 @@ router.get("/",async(req:Request, res:Response) => {
     //creating a query '?'
     const qNew = req.query.new;
     const qCategory = req.query.category;
+    const qTag = req.query.tag
     try{
         let products;
         //checking wich query is availbe
@@ -85,6 +87,16 @@ router.get("/",async(req:Request, res:Response) => {
                 }
             })
         }
+        else if(qTag) {
+            //presenting products depending on the category 
+            products = await Product.find({
+                tags: {
+                    // checking if wich products have the qCategory inside of there categories
+                    $in:[qTag]
+                }
+            })
+        }
+
 
         //IF NOT QUERY IS PROVIDED THEN PRESENT ALL PRODUCTS
         else{

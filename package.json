@@ -14,6 +14,9 @@
     "nodemon": "^2.0.19",
     "stripe": "^10.10.0"
   },
+  "engines": {
+    "node": "16.17.0"
+  }
   "scripts": {
     "start": "nodemon index.ts"
   },

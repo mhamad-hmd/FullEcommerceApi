@@ -18,7 +18,7 @@
     "node": "16.16.0"
   },
   "scripts": {
-    "start": "index.js",
+    "start": "src/index.js",
     "build": "tsc"
   },
   "devDependencies": {

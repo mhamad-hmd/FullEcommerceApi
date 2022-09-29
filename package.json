@@ -15,7 +15,7 @@
     "stripe": "^10.10.0"
   },
   "engines": {
-    "node": "16.17.0"
+    "node": "16.16.0"
   },
   "scripts": {
     "start": "index.js",

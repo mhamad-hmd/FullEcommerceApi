@@ -27,6 +27,23 @@ router.put("/:id", VerifyTokenAndAuthorization,async(req:Request, res:Response) 
 
 });
 
+//favPrductAdd
+
+router.put("/:id",verifyToken, async(req:Request, res:Response) => {
+    if (req.body.password){
+        req.body.password =  CryptoJS.AES.encrypt(req.body.password, process.env.PASS_SEC).toString()
+    }
+
+    try{
+        //findind user in th DB by his id 
+        const updateUser = await User.findByIdAndUpdate(req.params.id , {
+            //setting what is in the body to the user example:updating username
+            $set: req.body.favProduct
+        }, {new:true})
+        res.status(200).json(updateUser)
+    }catch (err) {res.status(500).json(err)}
+})  
+
 //Delete
 
 

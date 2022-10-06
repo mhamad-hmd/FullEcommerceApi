@@ -18,11 +18,10 @@
     "node": "16.16.0"
   },
   "scripts": {
-<<<<<<< HEAD
-    "start": "index.ts",
-=======
+
+
     "start": "nodemon index.js",
->>>>>>> d6593ecadbf4213b3a014ada4bc4e6e9d8d8ddb8
+
     "build": "tsc"
   },
   "devDependencies": {

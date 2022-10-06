@@ -23,7 +23,7 @@ router.post("/", verifyToken, async (req:Request, res:Response) => {
 })
 
 // // Update
-router.put("/:id", VerifyTokenAndAuthorization,async(req:Request, res:Response) => {
+router.put("/:id", verifyToken,async(req:Request, res:Response) => {
     
 
     try{

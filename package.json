@@ -19,7 +19,6 @@
   },
   "scripts": {
 
-    
     "start": "nodemon index.js",
 
     "build": "tsc"

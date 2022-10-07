@@ -3,12 +3,10 @@ const router = require('express').Router();
 import { Request, Response } from "express";
 const bodyParser = require('body-parser')
 const {verifyToken,VerifyTokenAndAuthorization, VerifyTokenAndAdmin} = require('./verifyToken')
-const CryptoJS = require("crypto-js");
 const Cart = require('../models/Cart');
 
 
 
-const jsonParser = bodyParser.json()
 
 //CREATE
 
@@ -24,7 +22,6 @@ router.post("/", verifyToken, async (req:Request, res:Response) => {
 
 // // Update
 router.put("/:id", verifyToken ,async(req:Request, res:Response) => {
-    
 
     try{
         //findind Cart  in th DB by his id 

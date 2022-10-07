@@ -27,8 +27,9 @@ router.post("/register", jsonParser, async (req: Request, res: Response) => {
         }, process.env.JWT_SEC,
             { expiresIn: "3d" }
         );
-        res.status(201).json({savedUser, accessToken})
-    } catch (err) {
+        const {...others } = savedUser._doc;
+        res.status(200).json({...others, accessToken}) } 
+        catch (err) {
         res.status(500).json(err)
     }
 

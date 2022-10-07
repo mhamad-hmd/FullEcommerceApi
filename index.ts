@@ -12,10 +12,6 @@ const stripeRoute = require("./routes/stripe")
 const cors = require("cors")
 
 dotenv.config();
-const corsOptions ={
-    origin:'*', 
- }
-//  Access-Control-Allow-Origin: https://amazing.site
 
 mongoose.connect(process.env.MONGO_URL)
 .then(() => console.log("DB CONNECTED "))

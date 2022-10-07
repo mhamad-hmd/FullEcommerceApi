@@ -17,6 +17,7 @@ const corsOptions ={
     credentials:true,            //access-control-allow-credentials:true
     optionSuccessStatus:200,
  }
+//  Access-Control-Allow-Origin: https://amazing.site
 
 mongoose.connect(process.env.MONGO_URL)
 .then(() => console.log("DB CONNECTED "))

@@ -20,7 +20,7 @@
   "scripts": {
 
     
-    "start": "nodemon index.ts",
+    "start": "nodemon index.js",
 
     "build": "tsc"
   },

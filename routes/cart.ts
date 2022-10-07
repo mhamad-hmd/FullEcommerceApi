@@ -30,7 +30,9 @@ router.put("/:id", verifyToken ,async(req:Request, res:Response) => {
             $set: req.body
         }, {new:true})
         res.status(200).json(updateCart)
-    }catch (err) {res.status(500).json(err)}
+    } catch(err) {
+        res.status(500).json(err)
+    }
 
 });
 

@@ -12,7 +12,7 @@ const verifyToken = (req: IGetUserAuthInfoRequest, res: Response, next: NextFunc
     if(authHeader){
         const token =  authHeader.split(" ")[1]
         jwt.verify(token, process.env.JWT_SEC, (err:Error,user:object) => { 
-            if(err) res.status(403).json("Token not valid")
+            if(err) return res.status(403).json("Token not valid")
             req.user = user;
             next()
          })
@@ -28,11 +28,11 @@ const VerifyTokenAndAuthorization = (req:IGetUserAuthInfoRequest, res:Response, 
     verifyToken(req, res, () => {
         //we are checkin if the user id is equal to the one in the params or if the users id admin 
         if(req.user.id === req.params.id || req.user.isAdmin){
-            next()
-            return
+            return next()
+            
         }else{
-            res.status(403).json("your not allowed to do that")
-            return
+            return  res.status(403).json("your not allowed to do that")
+            
         }
     })
 };
@@ -41,11 +41,11 @@ const VerifyTokenAndAdmin = (req:IGetUserAuthInfoRequest, res:Response, next:Nex
     verifyToken(req, res, () => {
         //we are checkin if the user id is equal to the one in the params or if the users id admin 
         if( req.user.isAdmin){
-            next()
-            return
+            return  next()
+            
         }else{
-            res.status(403).json("your not allowed to do that")
-            return
+            return   res.status(403).json("your not allowed to do that")
+            
         }
     })
 }

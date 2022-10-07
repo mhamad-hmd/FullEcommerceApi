@@ -1,7 +1,6 @@
 
 const router = require('express').Router();
 import { Request, Response } from "express";
-const bodyParser = require('body-parser')
 const { verifyToken, VerifyTokenAndAuthorization, VerifyTokenAndAdmin } = require('./verifyToken')
 const Cart = require('../models/Cart');
 

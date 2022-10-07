@@ -16,6 +16,7 @@ const verifyToken = (req: IGetUserAuthInfoRequest, res: Response, next: NextFunc
             req.user = user;
             next()
          })
+         
     }  
     else{
         return res.status(401).json("Your not authenticated!")
@@ -28,8 +29,10 @@ const VerifyTokenAndAuthorization = (req:IGetUserAuthInfoRequest, res:Response, 
         //we are checkin if the user id is equal to the one in the params or if the users id admin 
         if(req.user.id === req.params.id || req.user.isAdmin){
             next()
+            return
         }else{
             res.status(403).json("your not allowed to do that")
+            return
         }
     })
 };
@@ -39,8 +42,10 @@ const VerifyTokenAndAdmin = (req:IGetUserAuthInfoRequest, res:Response, next:Nex
         //we are checkin if the user id is equal to the one in the params or if the users id admin 
         if( req.user.isAdmin){
             next()
+            return
         }else{
             res.status(403).json("your not allowed to do that")
+            return
         }
     })
 }

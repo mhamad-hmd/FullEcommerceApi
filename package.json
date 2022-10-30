@@ -19,7 +19,7 @@
     "node": "16.16.0"
   },
   "scripts": {
-    "start": "nodemon index.ts",
+    "start": "nodemon index.js",
     "build": "tsc"
   },
   "devDependencies": {

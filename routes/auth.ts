@@ -16,6 +16,7 @@ router.post("/register", jsonParser, async (req: Request, res: Response) => {
         name:req.body.name,
         lastName:req.body.lastName,
         password: CryptoJS.AES.encrypt(req.body.password, process.env.PASS_SEC).toString(),
+        image:""
     });
 
     try {

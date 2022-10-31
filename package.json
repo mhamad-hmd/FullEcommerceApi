@@ -20,6 +20,7 @@
   },
   "scripts": {
     "start": "nodemon index.js",
+    "startTs": "nodemon index.ts",
     "build": "tsc"
   },
   "devDependencies": {
